@@ -16,17 +16,18 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <!-- <link rel="stylesheet" href="./style.css" /> -->
+    <link rel="stylesheet" href="https://use.typekit.net/pow1qgs.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
 
   <body>
-    <nav class="navbar bg-body-tertiary">
+    <nav class="navbar bg-body-tertiary mb-5">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">相機浮水印</a>
       </div>
     </nav>
     <div class="container">
-      <div class="card mb-3 m-auto" style="width: 500px">
+      <div class="card mb-3 m-auto" style="width: 800px">
         <div>
           <figure>
             <img width="100%" id="FileThumbnail" />
@@ -38,15 +39,38 @@
             <img src="./images/上傳圖片.svg" alt="上傳檔案" />
           </label>
         </div>
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
-          </p>
-          <p class="card-text">
-            <small class="text-body-secondary">Last updated 3 mins ago</small>
-          </p>
+        <div class="card-body container">
+          <div class="row justify-content-between">
+            <div class="col-6">
+              <img width="35%" id="Make" src="./logo/" alt="" />
+            </div>
+            <div class="col-6">
+              <div class="col navbar-expand-lg">
+                <div>
+                  <ul class="navbar-nav justify-content-between">
+                    <!-- 焦段 -->
+                    <li class="col" id="FocalLength"></li>
+                    <!-- 光圈 -->
+                    <li class="col" id="ISO"></li>
+                    <!-- 快門 -->
+                    <li class="col" id="ExposureTime"></li>
+                    <!-- ISO -->
+                    <li class="col" id="FNumber"></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Force next columns to break to new line -->
+            <div class="w-100 d-none d-md-block"></div>
+
+            <div class="col-6">
+              <p id="Model" class="card-text"></p>
+            </div>
+
+            <div class="col-6">
+              <p class="m-0">2023/12/12 12:12:12</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
