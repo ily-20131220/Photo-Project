@@ -44,11 +44,14 @@ InputFile.addEventListener("change", (e) => {
     let ExposureTime = `${ExifData.ExposureTime.numerator}/${ExifData.ExposureTime.denominator}`; //快門
     const FNumberText = document.querySelector("#FNumber");
     let FNumber = `${ExifData.FNumber}`; //光圈
+    const time = document.querySelector("#time");
+    let dateTime = ExifData.DateTimeOriginal;
     // console.log(FocalLength, ISO, ExposureTime, FNumber);
     // console.log(FocalLengthText, ISOtext, ExposureTimeText, FNumberText);
     if (FocalLength) FocalLengthText.innerText = `${FocalLength}mm`;
     if (ISO) ISOtext.innerText = `ISO ${ISO}`;
     if (ExposureTime) ExposureTimeText.innerText = ExposureTime;
     if (FNumber) FNumberText.innerText = `F/${FNumber}`;
+    if (dateTime) time.innerText = dateTime;
   });
 });

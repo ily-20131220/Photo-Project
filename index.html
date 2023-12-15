@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>相機參數水印</title>
+    <title>Photo Watermark</title>
     <link rel="icon" href="./images/相機logo.svg" />
     <!-- Bootstrap CSS v5.2.1 -->
     <link
@@ -17,23 +17,24 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://use.typekit.net/pow1qgs.css" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./style/style.css" />
   </head>
 
   <body>
     <nav class="navbar bg-body-tertiary mb-5">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">相機浮水印</a>
+      <div class="container-fluid justify-content-center">
+        <h1>Photo Watermark</h1>
       </div>
     </nav>
     <div class="container">
       <div class="card mb-3 m-auto" style="width: 800px">
         <div>
           <figure>
-            <img width="100%" id="FileThumbnail" />
+            <img class="img-fluid" id="FileThumbnail" />
           </figure>
         </div>
-        <div>
+        <div class="text-center">
+          <!-- 上傳圖片 -->
           <input type="file" id="UpFile" accept="images/*" class="d-none" />
           <label for="UpFile">
             <img src="./images/上傳圖片.svg" alt="上傳檔案" />
@@ -42,33 +43,33 @@
         <div class="card-body container">
           <div class="row justify-content-between">
             <div class="col-6">
+              <!-- 廠牌logo圖片 -->
               <img width="35%" id="Make" src="./logo/" alt="" />
             </div>
-            <div class="col-6">
+            <div class="col-6 d-flex align-items-center">
               <div class="col navbar-expand-lg">
                 <div>
-                  <ul class="navbar-nav justify-content-between">
+                  <ul class="navbar-nav">
                     <!-- 焦段 -->
-                    <li class="col" id="FocalLength"></li>
+                    <li class="col font" id="FocalLength"></li>
                     <!-- 光圈 -->
-                    <li class="col" id="ISO"></li>
+                    <li class="col font" id="ISO"></li>
                     <!-- 快門 -->
-                    <li class="col" id="ExposureTime"></li>
+                    <li class="col font" id="ExposureTime"></li>
                     <!-- ISO -->
-                    <li class="col" id="FNumber"></li>
+                    <li class="col font" id="FNumber"></li>
                   </ul>
                 </div>
               </div>
             </div>
-            <!-- Force next columns to break to new line -->
-            <div class="w-100 d-none d-md-block"></div>
-
             <div class="col-6">
-              <p id="Model" class="card-text"></p>
+              <!-- 相機型號 -->
+              <p id="Model" class="card-text font p-2"></p>
             </div>
 
-            <div class="col-6">
-              <p class="m-0">2023/12/12 12:12:12</p>
+            <div class="col-6 d-flex align-items-center">
+              <!-- 拍攝時間 -->
+              <p id="time" class="m-0 font"></p>
             </div>
           </div>
         </div>
