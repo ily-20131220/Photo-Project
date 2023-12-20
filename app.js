@@ -10,6 +10,11 @@ import {
   MakeImage,
   FileThumbnail,
   labelNone,
+  inputFocalLength,
+  inputISO,
+  inputExposureTime,
+  inputFNumber,
+  inputTime,
 } from "./constant.js";
 
 //預覽圖片
@@ -68,29 +73,43 @@ InputFile.addEventListener("input", (e) => {
         ModelTitel.innerHTML = model;
         inputModel.value = model;
       }
-
       //--------------------------------------------------
 
       //焦段---------------------------------------------
       let FocalLength = ExifData.FocalLength.numerator;
-      if (FocalLength) FocalLengthText.innerHTML = `${FocalLength}mm`;
+      if (FocalLength) {
+        FocalLengthText.innerHTML = `${FocalLength}mm`;
+        inputFocalLength.value = FocalLength;
+      }
       //--------------------------------------------------
 
       //ISO-----------------------------------------------
       let ISO = ExifData.ISOSpeedRatings;
-      if (ISO) ISOtext.innerHTML = `ISO ${ISO}`;
+      if (ISO) {
+        ISOtext.innerHTML = `ISO ${ISO}`;
+        inputISO.value = ISO;
+      }
       //--------------------------------------------------
 
       //快門----------------------------------------------
       let ExposureTime = `${ExifData.ExposureTime.numerator}/${ExifData.ExposureTime.denominator}`; //
-      if (ExposureTime) ExposureTimeText.innerHTML = ExposureTime;
+      if (ExposureTime) {
+        ExposureTimeText.innerHTML = ExposureTime;
+        inputExposureTime.value = ExposureTime;
+      }
       //--------------------------------------------------
       //光圈----------------------------------------------
       let FNumber = `${ExifData.FNumber}`; //光圈
-      if (FNumber) FNumberText.innerHTML = `F/${FNumber}`;
+      if (FNumber) {
+        FNumberText.innerHTML = `F/${FNumber}`;
+        inputFNumber.value = FNumber;
+      }
       //拍攝時間-------------------------------------------
       let dateTime = ExifData.DateTimeOriginal;
-      if (dateTime) time.innerHTML = dateTime;
+      if (dateTime) {
+        time.innerHTML = dateTime;
+        inputTime.value = dateTime;
+      }
     }
   });
 });

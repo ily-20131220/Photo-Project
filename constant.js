@@ -10,6 +10,11 @@ const InputFile = document.querySelector("#UpFile"); //input預覽圖片
 const MakeImage = document.querySelector("#Make"); //圖片log
 const FileThumbnail = document.querySelector("#FileThumbnail");
 const labelNone = document.querySelector("#label-none");
+const inputFocalLength = document.querySelector("#input-FocalLength");
+const inputISO = document.querySelector("#input-ISO");
+const inputExposureTime = document.querySelector("#input-ExposureTime");
+const inputFNumber = document.querySelector("#input-FNumber");
+const inputTime = document.querySelector("#input-time");
 
 export {
   ModelTitel,
@@ -23,4 +28,9 @@ export {
   MakeImage,
   FileThumbnail,
   labelNone,
+  inputFocalLength,
+  inputISO,
+  inputExposureTime,
+  inputFNumber,
+  inputTime,
 };
