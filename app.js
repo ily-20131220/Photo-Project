@@ -1,7 +1,16 @@
-const InputFile = document.querySelector("#UpFile"); //input
-const MakeImage = document.querySelector("#Make"); //圖片log
-const FileThumbnail = document.querySelector("#FileThumbnail"); //
-const labelNone = document.querySelector("#label-none"); //
+import {
+  ModelTitel,
+  FocalLengthText,
+  ISOtext,
+  ExposureTimeText,
+  FNumberText,
+  time,
+  inputModel,
+  InputFile,
+  MakeImage,
+  FileThumbnail,
+  labelNone,
+} from "./constant.js";
 
 //預覽圖片
 InputFile.addEventListener("input", (e) => {
@@ -20,12 +29,7 @@ InputFile.addEventListener("input", (e) => {
   let ExifFile = e.target.files[0];
   const Image = document.querySelector("#FileThumbnail");
   //拿取Model參數
-  const ModelTitel = document.querySelector("#Model");
-  const FocalLengthText = document.querySelector("#FocalLength"); //焦段
-  const ISOtext = document.querySelector("#ISO"); //ISO
-  const ExposureTimeText = document.querySelector("#ExposureTime"); //快門
-  const FNumberText = document.querySelector("#FNumber"); //光圈
-  const time = document.querySelector("#time"); //拍攝時間
+
   EXIF.getData(ExifFile, function () {
     let ExifData = EXIF.getAllTags(this);
     console.log(ExifData);
@@ -37,29 +41,34 @@ InputFile.addEventListener("input", (e) => {
       ExposureTimeText.innerHTML = ""; //快門顯示空白
       FNumberText.innerHTML = ""; //光圈顯示空白
       time.innerHTML = ""; //拍攝時間顯示空白
-
+      MakeImage.src = "";
       return;
     } else {
       console.log("有數據");
       // 判斷是否能讀取到Make
       if (ExifData.Make) {
-        Make = ExifData.Make.toLowerCase(); //將讀取到的廠牌換成小寫
+        let Make = ExifData.Make.toLowerCase(); //將讀取到的廠牌換成小寫
+        //判斷廠牌的型號給予對應的logo
+        if (Make == "canon") {
+          MakeImage.src = `./logo/${Make}.png`;
+        } else if (Make == "sony") {
+          MakeImage.src = `./logo/${Make}.png`;
+        } else {
+          MakeImage.src = "./logo/";
+          console.log("不相同");
+        }
       } else {
         console.log("讀取不到logo");
       }
-      //判斷廠牌的型號給予對應的logo
-      if (Make == "canon") {
-        MakeImage.src = `./logo/${Make}.png`;
-      } else if (Make == "sony") {
-        MakeImage.src = `./logo/${Make}.png`;
-      } else {
-        MakeImage.src = "";
-        console.log("不相同");
-      }
+
       //拿取光圈、快門、ISO、焦段
       //型號---------------------------------------------
       let model = ExifData.Model;
-      ModelTitel.innerHTML = model;
+      if (model) {
+        ModelTitel.innerHTML = model;
+        inputModel.value = model;
+      }
+
       //--------------------------------------------------
 
       //焦段---------------------------------------------

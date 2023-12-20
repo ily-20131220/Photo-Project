@@ -27,6 +27,7 @@
       </div>
     </nav>
     <div class="container">
+      <!-- 相片內容參數 -->
       <div class="card mb-3 m-auto" style="width: 800px">
         <div>
           <figure>
@@ -66,7 +67,6 @@
               <!-- 相機型號 -->
               <p id="Model" class="card-text font p-2"></p>
             </div>
-
             <div class="col-6 d-flex align-items-center">
               <!-- 拍攝時間 -->
               <p id="time" class="m-0 font"></p>
@@ -74,6 +74,66 @@
           </div>
         </div>
       </div>
+      <hr />
+      <!-- 修改參數 -->
+      <form action="" class="needs-validation col-7 m-auto">
+        <div class="row row-cols-3 g-3">
+          <div class="col">
+            <label for="input-logo" class="form-label"></label>
+            <div class="input-group">
+              <span class="input-group-text">LOGO</span>
+              <input type="text" id="input-logo" class="form-control" />
+            </div>
+          </div>
+          <div class="col">
+            <label for="input-model" class="form-label"></label>
+            <div class="input-group">
+              <span class="input-group-text">型號</span>
+              <input
+                type="text"
+                id="input-model"
+                class="form-control"
+                value=""
+              />
+            </div>
+          </div>
+          <div class="col">
+            <label for="input-FocalLength" class="form-label"></label>
+            <div class="input-group">
+              <span class="input-group-text">焦段</span>
+              <input type="text" id="input-FocalLength" class="form-control" />
+            </div>
+          </div>
+          <div class="col">
+            <label for="" class="form-label"></label>
+            <div class="input-group">
+              <sapn class="input-group-text">ISO</sapn>
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="col">
+            <label for="" class="form-label"></label>
+            <div class="input-group">
+              <sapn class="input-group-text">快門</sapn>
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="col">
+            <label for="" class="form-label"></label>
+            <div class="input-group">
+              <sapn class="input-group-text">光圈</sapn>
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="col">
+            <label for="" class="form-label"></label>
+            <div class="input-group">
+              <sapn class="input-group-text">時間</sapn>
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -92,6 +152,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="./app.js"></script>
+    <script src="./constant.js"></script>
+    <script type="module" src="./app.js"></script>
   </body>
 </html>
