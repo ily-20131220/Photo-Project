@@ -15,6 +15,9 @@ import {
   inputExposureTime,
   inputFNumber,
   inputTime,
+  valueLogo,
+  changeMark,
+  changeLogo,
 } from "./constant.js";
 
 //預覽圖片
@@ -46,7 +49,14 @@ InputFile.addEventListener("input", (e) => {
       ExposureTimeText.innerHTML = ""; //快門顯示空白
       FNumberText.innerHTML = ""; //光圈顯示空白
       time.innerHTML = ""; //拍攝時間顯示空白
-      MakeImage.src = "";
+      MakeImage.src = ""; //圖片logo不顯示
+      inputModel.value = "";
+      inputFocalLength.value = "";
+      inputISO.value = "";
+      inputExposureTime.value = "";
+      inputFNumber.value = "";
+      inputTime.value = "";
+      valueLogo.innerHTML = "";
       return;
     } else {
       console.log("有數據");
@@ -56,8 +66,20 @@ InputFile.addEventListener("input", (e) => {
         //判斷廠牌的型號給予對應的logo
         if (Make == "canon") {
           MakeImage.src = `./logo/${Make}.png`;
+          valueLogo.innerHTML = Make;
+          valueLogo.value = "1";
         } else if (Make == "sony") {
           MakeImage.src = `./logo/${Make}.png`;
+          valueLogo.innerHTML = Make;
+          valueLogo.value = "2";
+        } else if (Make == "nikon") {
+          MakeImage.src = `./logo/${Make}.png`;
+          valueLogo.innerHTML = Make;
+          valueLogo.value = "3";
+        } else if (Make == "fujifilm") {
+          MakeImage.src = `./logo/${Make}.png`;
+          valueLogo.innerHTML = Make;
+          valueLogo.value = "4";
         } else {
           MakeImage.src = "./logo/";
           console.log("不相同");
@@ -112,4 +134,44 @@ InputFile.addEventListener("input", (e) => {
       }
     }
   });
+});
+
+changeMark.addEventListener("click", function () {
+  console.log(changeLogo.value);
+  if (changeLogo.value == 1) {
+    MakeImage.src = `./logo/canon.png`;
+  } else if (changeLogo.value == 2) {
+    MakeImage.src = `./logo/sony.png`;
+  } else if (changeLogo.value == 3) {
+    MakeImage.src = `./logo/nikon.png`;
+  } else if (changeLogo.value == 4) {
+    MakeImage.src = `./logo/fujifilm.png`;
+  } else {
+    MakeImage.src = "";
+  }
+
+  ModelTitel.innerHTML = inputModel.value;
+  if (inputFocalLength.value == "") {
+    FocalLengthText.innerHTML = "";
+  } else {
+    FocalLengthText.innerHTML = `${inputFocalLength.value}mm`;
+  }
+
+  if (inputISO.value == "") {
+    ISOtext.innerHTML = "";
+  } else {
+    ISOtext.innerHTML = `ISO ${inputISO.value}`;
+  }
+
+  if (inputExposureTime.value == "") {
+    ExposureTimeText.innerHTML = "";
+  } else {
+    ExposureTimeText.innerHTML = `1/${inputExposureTime.value}`;
+  }
+  if (inputFNumber.value == "") {
+    FNumberText.innerHTML = "";
+  } else {
+    FNumberText.innerHTML = `F/${inputFNumber.value}`;
+  }
+  time.innerHTML = inputTime.value;
 });

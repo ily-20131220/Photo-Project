@@ -15,6 +15,9 @@ const inputISO = document.querySelector("#input-ISO");
 const inputExposureTime = document.querySelector("#input-ExposureTime");
 const inputFNumber = document.querySelector("#input-FNumber");
 const inputTime = document.querySelector("#input-time");
+const valueLogo = document.querySelector("#value-logo");
+const changeMark = document.querySelector("#change-mark");
+const changeLogo = document.querySelector("#change-logo");
 
 export {
   ModelTitel,
@@ -33,4 +36,7 @@ export {
   inputExposureTime,
   inputFNumber,
   inputTime,
+  valueLogo,
+  changeMark,
+  changeLogo,
 };
