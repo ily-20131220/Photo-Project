@@ -18,6 +18,8 @@ import {
   valueLogo,
   changeMark,
   changeLogo,
+  downloadBTN,
+  downloadContent,
 } from "./constant.js";
 
 //預覽圖片
@@ -175,3 +177,28 @@ changeMark.addEventListener("click", function () {
   }
   time.innerHTML = inputTime.value;
 });
+
+const config = {
+  quality: 1,
+  style: { filter: "grayscale(100%)" },
+};
+
+const dataUri = await domtoimage
+  .toJpeg(downloadContent, config)
+  .then((dataUrl) => dataUrl);
+downloadBTN.addEventListener("click", function () {
+  const link = document.createElement("a");
+  const filename = "Demo.png";
+  link.download = filename;
+  link.href = dataUri;
+  link.click();
+});
+
+// downloadBTN.addEventListener("click", function () {
+//   domtoimage.toJpeg(downloadContent, config).then(function (dataUrl) {
+//     var link = document.createElement("a");
+//     link.download = "my-image-name.jpeg";
+//     link.href = dataUrl;
+//     link.click();
+//   });
+// });

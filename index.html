@@ -35,47 +35,49 @@
     <div class="container">
       <!-- 相片內容參數 -->
       <div class="card mb-3 m-auto" style="width: 800px">
-        <div>
-          <figure>
-            <img class="img-fluid" id="FileThumbnail" />
-          </figure>
-        </div>
-        <div class="text-center">
-          <!-- 上傳圖片 -->
-          <input type="file" id="UpFile" accept="images/*" class="d-none" />
-          <label class="" id="label-none" for="UpFile">
-            <img src="./images/上傳圖片.svg" alt="上傳檔案" />
-          </label>
-        </div>
-        <div class="card-body container">
-          <div class="row justify-content-between">
-            <div class="col-6">
-              <!-- 廠牌logo圖片 -->
-              <img width="35%" id="Make" src="./logo/" alt="" />
-            </div>
-            <div class="col-6 d-flex align-items-center">
-              <div class="col navbar-expand-lg">
-                <div>
-                  <ul class="navbar-nav">
-                    <!-- 焦段 -->
-                    <li class="col font" id="FocalLength"></li>
-                    <!-- 光圈 -->
-                    <li class="col font" id="ISO"></li>
-                    <!-- 快門 -->
-                    <li class="col font" id="ExposureTime"></li>
-                    <!-- ISO -->
-                    <li class="col font" id="FNumber"></li>
-                  </ul>
+        <div class="download">
+          <div>
+            <figure>
+              <img class="img-fluid" id="FileThumbnail" />
+            </figure>
+          </div>
+          <div class="text-center">
+            <!-- 上傳圖片 -->
+            <input type="file" id="UpFile" accept="images/*" class="d-none" />
+            <label class="" id="label-none" for="UpFile">
+              <img src="./images/上傳圖片.svg" alt="上傳檔案" />
+            </label>
+          </div>
+          <div class="card-body container">
+            <div class="row justify-content-between">
+              <div class="col-6">
+                <!-- 廠牌logo圖片 -->
+                <img width="35%" id="Make" src="./logo/" alt="" />
+              </div>
+              <div class="col-6 d-flex align-items-center">
+                <div class="col navbar-expand-lg">
+                  <div>
+                    <ul class="navbar-nav">
+                      <!-- 焦段 -->
+                      <li class="col font" id="FocalLength"></li>
+                      <!-- 光圈 -->
+                      <li class="col font" id="ISO"></li>
+                      <!-- 快門 -->
+                      <li class="col font" id="ExposureTime"></li>
+                      <!-- ISO -->
+                      <li class="col font" id="FNumber"></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-6">
-              <!-- 相機型號 -->
-              <p id="Model" class="card-text font p-2"></p>
-            </div>
-            <div class="col-6 d-flex align-items-center">
-              <!-- 拍攝時間 -->
-              <p id="time" class="m-0 font"></p>
+              <div class="col-6">
+                <!-- 相機型號 -->
+                <p id="Model" class="card-text font p-2"></p>
+              </div>
+              <div class="col-6 d-flex align-items-center">
+                <!-- 拍攝時間 -->
+                <p id="time" class="m-0 font"></p>
+              </div>
             </div>
           </div>
         </div>
@@ -157,7 +159,10 @@
           value="修改"
           id="change-mark"
         />
-        <button class="btn btn-outline-secondary btn-lg px-4 col-3">
+        <button
+          id="download-btn"
+          class="btn btn-outline-secondary btn-lg px-4 col-3"
+        >
           下載
         </button>
       </div>

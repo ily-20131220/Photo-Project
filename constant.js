@@ -18,7 +18,8 @@ const inputTime = document.querySelector("#input-time");
 const valueLogo = document.querySelector("#value-logo");
 const changeMark = document.querySelector("#change-mark");
 const changeLogo = document.querySelector("#change-logo");
-
+const downloadBTN = document.querySelector("#download-btn");
+const downloadContent = document.querySelector(".download");
 export {
   ModelTitel,
   FocalLengthText,
@@ -39,4 +40,6 @@ export {
   valueLogo,
   changeMark,
   changeLogo,
+  downloadBTN,
+  downloadContent,
 };
