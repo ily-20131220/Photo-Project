@@ -5,6 +5,7 @@ import {
   ExposureTimeText,
   FNumberText,
   time,
+  date,
   inputModel,
   InputFile,
   MakeImage,
@@ -15,12 +16,13 @@ import {
   inputExposureTime,
   inputFNumber,
   inputTime,
+  inputDate,
   valueLogo,
   changeMark,
   changeLogo,
   downloadBTN,
   downloadContent,
-} from "./constant.js";
+} from "./constant.mjs";
 
 //預覽圖片
 InputFile.addEventListener("input", (e) => {
@@ -130,9 +132,12 @@ InputFile.addEventListener("input", (e) => {
       }
       //拍攝時間-------------------------------------------
       let dateTime = ExifData.DateTimeOriginal;
+      dateTime = dateTime.split(" ");
       if (dateTime) {
-        time.innerHTML = dateTime;
-        inputTime.value = dateTime;
+        time.innerHTML = dateTime[1];
+        inputTime.value = dateTime[0];
+        date.innerHTML = dateTime[0];
+        inputDate.value = dateTime[1];
       }
     }
   });
@@ -178,27 +183,23 @@ changeMark.addEventListener("click", function () {
   time.innerHTML = inputTime.value;
 });
 
-const config = {
-  quality: 1,
-  style: { filter: "grayscale(100%)" },
-};
-
-const dataUri = await domtoimage
-  .toJpeg(downloadContent, config)
-  .then((dataUrl) => dataUrl);
-downloadBTN.addEventListener("click", function () {
-  const link = document.createElement("a");
-  const filename = "Demo.png";
-  link.download = filename;
-  link.href = dataUri;
-  link.click();
+downloadBTN.addEventListener("click", () => {
+  let download = document.getElementById("download");
+  let height = download.offsetHeight;
+  let width = download.offsetWidth;
+  domtoimage
+    .toJpeg(download, {
+      quality: 0.95,
+      height,
+      width,
+      style: {
+        background: "white",
+      },
+    })
+    .then(function (dataUrl) {
+      var link = document.createElement("a");
+      link.download = "my-image-name.jpg";
+      link.href = dataUrl;
+      link.click();
+    });
 });
-
-// downloadBTN.addEventListener("click", function () {
-//   domtoimage.toJpeg(downloadContent, config).then(function (dataUrl) {
-//     var link = document.createElement("a");
-//     link.download = "my-image-name.jpeg";
-//     link.href = dataUrl;
-//     link.click();
-//   });
-// });

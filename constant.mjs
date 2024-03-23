@@ -5,6 +5,7 @@ const ISOtext = document.querySelector("#ISO"); //ISO
 const ExposureTimeText = document.querySelector("#ExposureTime"); //快門
 const FNumberText = document.querySelector("#FNumber"); //光圈
 const time = document.querySelector("#time"); //拍攝時間
+const date = document.querySelector("#date"); //拍攝時間
 const inputModel = document.querySelector("#input-model");
 const InputFile = document.querySelector("#UpFile"); //input預覽圖片
 const MakeImage = document.querySelector("#Make"); //圖片log
@@ -15,6 +16,7 @@ const inputISO = document.querySelector("#input-ISO");
 const inputExposureTime = document.querySelector("#input-ExposureTime");
 const inputFNumber = document.querySelector("#input-FNumber");
 const inputTime = document.querySelector("#input-time");
+const inputDate = document.querySelector("#input-date");
 const valueLogo = document.querySelector("#value-logo");
 const changeMark = document.querySelector("#change-mark");
 const changeLogo = document.querySelector("#change-logo");
@@ -27,6 +29,7 @@ export {
   ExposureTimeText,
   FNumberText,
   time,
+  date,
   inputModel,
   InputFile,
   MakeImage,
@@ -37,6 +40,7 @@ export {
   inputExposureTime,
   inputFNumber,
   inputTime,
+  inputDate,
   valueLogo,
   changeMark,
   changeLogo,
