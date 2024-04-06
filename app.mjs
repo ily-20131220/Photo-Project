@@ -180,7 +180,7 @@ changeMark.addEventListener("click", function () {
   } else {
     FNumberText.innerHTML = `F/${inputFNumber.value}`;
   }
-  time.innerHTML = inputTime.value;
+  date.innerHTML = inputTime.value;
 });
 
 downloadBTN.addEventListener("click", () => {
